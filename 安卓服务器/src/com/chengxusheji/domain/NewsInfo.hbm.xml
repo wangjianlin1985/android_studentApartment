@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="NewsInfo" table="NewsInfo">
+
+          <!-- 主键记录编号 -->
+          <id name="newsId" column="newsId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 寝室房间 -->
+          <many-to-one name="roomObj"
+            column="roomObj"
+            class="RoomInfo"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 多对一属性: 信息类型 -->
+          <many-to-one name="infoTypeObj"
+            column="infoTypeObj"
+            class="IntoType"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 信息标题 -->
+          <property
+            name="infoTitle"
+            column="infoTitle"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 信息内容 -->
+          <property
+            name="infoContent"
+            column="infoContent"
+            type="string"
+            length="300"
+          />
+
+          <!-- 简单日期型属性: 信息日期 -->
+          <property
+            name="infoDate"
+            column="infoDate"
+            	type="timestamp"
+            	length="10"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

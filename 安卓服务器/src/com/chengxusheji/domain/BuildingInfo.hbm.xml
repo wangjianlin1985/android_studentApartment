@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="BuildingInfo" table="BuildingInfo">
+
+          <!-- 主键记录编号 -->
+          <id name="buildingId" column="buildingId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 简单字符串属性: 所在校区 -->
+          <property
+            name="areaObj"
+            column="areaObj"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 宿舍名称 -->
+          <property
+            name="buildingName"
+            column="buildingName"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 管理员 -->
+          <property
+            name="manageMan"
+            column="manageMan"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 门卫电话 -->
+          <property
+            name="telephone"
+            column="telephone"
+            type="string"
+            length="20"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

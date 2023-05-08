@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="LiveInfo" table="LiveInfo">
+
+          <!-- 主键记录编号 -->
+          <id name="liveInfoId" column="liveInfoId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 学生 -->
+          <many-to-one name="studentObj"
+            column="studentObj"
+            class="Student"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 多对一属性: 所在房间 -->
+          <many-to-one name="roomObj"
+            column="roomObj"
+            class="RoomInfo"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单日期型属性: 入住日期 -->
+          <property
+            name="liveDate"
+            column="liveDate"
+            	type="timestamp"
+            	length="10"
+          />
+
+          <!-- 简单字符串属性: 附加信息 -->
+          <property
+            name="liveMemo"
+            column="liveMemo"
+            type="string"
+            length="200"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 
